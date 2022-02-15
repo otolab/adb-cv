@@ -1,0 +1,62 @@
+{
+  "name": "adb-cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo skip; exit 0; mocha 'test/**/*.ts'",
+    "build": "tsc -p tsconfig.json",
+    "clean": "rimraf lib/",
+    "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "prepublishOnly": "npm run clean && npm run build",
+    "prepare": "git config --local core.hooksPath .githook",
+    "prepack": "npm run clean && npm run build",
+    "watch": "tsc -p . --watch"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otolab/adb-cv.git"
+  },
+  "keywords": [
+    "opencv",
+    "opencv-wasm",
+    "adb",
+    "android"
+  ],
+  "author": "Naoto Kato <otoan52@gmail.com> (https://github.com/otolab)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/otolab/adb-remote-cv/issues"
+  },
+  "homepage": "https://github.com/otolab/adb-remote-cv#readme",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "dependencies": {
+    "@types/bmp-js": "0.1.0",
+    "bmp-js": "0.1.0",
+    "jimp": "0.16.1",
+    "opencv-wasm": "4.3.0-10"
+  },
+  "devDependencies": {
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^15.0.1",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.2.4"
+  }
+}
