@@ -5,7 +5,7 @@ type CallbackFunction = (...args: any[]) => void;
 
 const DEBUG = false;
 
-const CMD_PATH = '/Users/naotokato/Develop/tools/platform-tools/adb';
+const ADB_PATH = 'adb';
 const BMP_HEADER_SIZE = 54;
 
 let _adbProc: ChildProcessByStdio<null, null, null> | null = null; // umm...
@@ -33,7 +33,7 @@ function createPipeLine(width: number, height: number, sec: number, cb: Callback
   ]);
 
   const adbProc = spawn(
-    CMD_PATH,
+    ADB_PATH,
     [
       'exec-out',
       'screenrecord',
