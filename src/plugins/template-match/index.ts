@@ -69,7 +69,7 @@ export class TemplateMatch {
 
   async init() {
     for (const setting of this.templateSettings) {
-      const [name, area, threshold, filePath] = setting;
+      const { name, area, threshold, filePath } = setting;
       this.templates[path.basename(name)] = await openTemplate(filePath, area, threshold, this.scale);
     }
     console.log('open templates:', Object.keys(this.templates));

@@ -5,7 +5,12 @@ export type CVMat = any;
 
 export type CVRect = any;
 
-export type TemplateSetting = [string, string, number, string];
+export interface TemplateSetting {
+  name: string;
+  area: string | undefined;
+  threshold: number | undefined;
+  filePath: string;
+}
 
 export type AreaSetting = CVRect;
 
@@ -54,7 +59,7 @@ const detector = new cv.ORB();
 export async function openTemplate(
   path: string,
   area: CVRect,
-  threshold: number,
+  threshold: number | undefined,
   scale: number
 ): Promise<TemplateCache> {
   const mat = await readTemplateImage(path, scale);
@@ -70,7 +75,7 @@ export async function openTemplate(
     origMat,
     // blurMat,
     area,
-    threshold,
+    threshold: threshold || 0.8,
     orb: {
       keyPoints,
       descriptors,

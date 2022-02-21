@@ -7,7 +7,7 @@ export function freeAll(...instances: CVMat[]) {
   instances.forEach((ins) => ins.delete());
 }
 
-export function match(snapshot: Jimp, template: CVMat, mask: CVMat = undefined, threshold: number = 0.8) {
+export function match(snapshot: Jimp, template: CVMat, mask: CVMat = undefined, threshold: number | undefined = 0.8) {
   const _mask = new cv.Mat();
   mask = _mask; // 上手く動かないので上書きして保留
 
