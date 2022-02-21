@@ -5,7 +5,7 @@ type CallbackFunction = (...args: any[]) => void;
 
 const DEBUG = false;
 
-const ADB_PATH = 'adb';
+const ADB_PATH = process.env.ADB_PATH || 'adb';
 const BMP_HEADER_SIZE = 54;
 
 let _adbProc: ChildProcessByStdio<null, null, null> | null = null; // umm...
