@@ -1,8 +1,5 @@
-import { LookWorker } from './watcher';
-
-export function create(width: number, height: number, scale: number) {
-  return new LookWorker(width, height, scale);
-}
+export { Watcher as ADBWatcher } from './watcher';
+export { TemplateSetting, AreaSetting } from './plugins/template-match/template';
 
 // const SCALE = 0.5;
 // const WIDTH = 1080 * SCALE;

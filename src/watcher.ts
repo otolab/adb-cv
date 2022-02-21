@@ -109,7 +109,7 @@ function createCaptureWorker(doubleBuffer: DoubleBuffer, width: number, height: 
   return captureWorker;
 }
 
-export class LookWorker {
+export class Watcher {
   width: number;
   height: number;
   scale: number;
