@@ -11,7 +11,7 @@ function* range(n: number, i = 0) {
   while (i < n) yield i++;
 }
 
-const DEBUG = true;
+const DEBUG = false;
 
 interface AnalyzerWorkerObject {
   idx: number;

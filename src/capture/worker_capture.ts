@@ -13,7 +13,7 @@ const pause = promisify(setTimeout);
 const { DoubleBuffer } = require('../utils/shared_double_buffer');
 const doubleBuffer = new DoubleBuffer(workerData.width * workerData.height * 3 + 54, workerData.doubleBufferShared);
 
-const DEBUG = true;
+const DEBUG = false;
 
 console.log('capture worker');
 
