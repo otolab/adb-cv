@@ -71,11 +71,10 @@ function sendResults(matchResults: MatchResults) {
   const templateMatcher = new TemplateMatch(pluginSettings['template-match'], commonConfig);
   await templateMatcher.init();
 
-  async function onMessage(msg: AnalyzeWorkerMessage) {
+  async function onMessage(msg: AnalyzeWorkerMessage | null) {
     // 終了させる場合はnullを渡される。仕様微妙。
     if (!msg) {
       process.exit(0);
-      return;
     }
 
     const { templates, idx, width, height } = msg;
@@ -85,7 +84,7 @@ function sendResults(matchResults: MatchResults) {
     const frame = new Uint8Array(sharedFrameBuf).subarray(BMP_HEADER_SIZE);
     const mat = cv.matFromArray(height, width, cv.CV_8UC3, frame);
 
-    const templateMatchMatchResults: TemplateMatchMatchResult[] = await templateMatcher.process(idx, mat, templates);
+    const templateMatchMatchResults: TemplateMatchMatchResult[] = templateMatcher.process(idx, mat, templates);
 
     const matchResults: MatchResults = {
       idx,

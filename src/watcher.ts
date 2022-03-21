@@ -250,8 +250,8 @@ export class Watcher {
     await pause(1); // スレッド切り
   }
 
-  async start(width: number, height: number, scale: number) {
-    console.log('start!', width, height, scale);
+  async start() {
+    console.log('start!');
 
     this.loop = true;
 
